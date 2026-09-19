@@ -1,0 +1,151 @@
+Data Growth Explosion
+
+Why traditional systems failed and Big data was required
+
+	- Data generated every second
+		○ IoT devices, Social Media, AI systems, Smartphones
+	- Structured systems cannot handle:
+		○ Size, Speed, Diversity
+	- Shift from GB -> TB -> PB -> EB
+
+Real world examples:
+	1. Google search
+	2. Netflix viewership
+
+
+Categories of Data
+	1. Structured
+		a. Tables, rows, cols
+		b. Ex: Student marks database
+	2. Semi-Structured
+		a. JSON, XML, logs
+		b. Ex: API responses
+	3. Unstructrued
+		a. Images, Audio, Video
+		b. Ex: Research paper, lecture video
+
+Different Data Storage Mechanism
+1990s - File -> RDBMS
+2000s - Data Warehouses
+2010s - NoSQL
+2020s - Data Lakes & Lakehouse
+
+
+Flat File, Tabular & Relational Databases
+Flat Files
+	- CSV, TXT, TSV
+	- Used in:
+		○ ETL - Extract Transform Load
+		○ Data Exchange
+Tabular Data
+	- Excel, DataFrames
+	- Used in:
+		○ Analytics
+Relational Databases
+	- MySQL, PostgreSQL, Oracle
+	- ACID Properties
+	- Schema-Oriented
+Limitations 
+	- Vertical Scaling
+	- Schema rigidity
+
+
+NoSQL Stores
+	- 4 types of NoSQL
+		○ Key-value - Redis DB - Caching
+		○ Document oriented - MongoDB - JSON Data
+		○ Graph based - Neo4J - Relationships
+		○ Column oriented - Cassandra - Time-series
+
+
+
+Characteristics of Big Data
+	- 5Vs of Big Data
+		○ Volume - Massive data size
+		○ Velocity - Streaming, real-time data
+		○ Variety - Text, Video, sensor data, Images
+		○ Veracity - Data quality, noise
+		○ Value - Business & research insight
+
+
+Information mining & Benefits of Big Data
+What is Information mining ?
+	- Extracting patterns, trends, insights
+
+Benefits:
+	1. Better Decision Making
+	2. Research acceleration
+	3. Academics Analytics
+
+
+Risks of Big Data
+Technical Risks:
+	1. Data inconsistency
+	2. Security Vulnerabilities
+	3. Scalability Failures
+
+Ethical Risks:
+	1. Privacy
+	2. Bias
+
+
+Structure of Big Data
+High Level Architecture
+	1. Data Sources
+	2. Ingestion
+	3. Storage
+	4. Processing
+	5. Analytics / AI
+	6. Visualization
+
+================================================
+
+Introduction to Hadoop
+	- Open-source framework that allows distributed storage and processing of large datasets
+	- Support fault tolerant mechanism
+	- Horizontally scalable
+
+Core Components of Hadoop
+HDFS - Hadoop Distributed File System - Storage (Memory)
+MapReduce - Processing (Brain of Hadoop)
+YARN - Yet Another Resource Negotiator
+
+
+HDFS
+	- Efficiently Large Files
+	- Write Once, Read Many
+	- High Throughput
+
+HDFS Architecture
+Client -> NameNode (Master) -> Slave (DataNode)
+
+Role of NameNode:
+	- Stores Metadata
+	- Filename, Block locations
+	- But do not handle actual data
+
+Role of DataNode:
+	- Store actual data
+	- Send heartbeat every 3 seconds to NameNode
+
+Block Concept:
+	- Split file into blocks
+	- Default block size = 128 MB
+
+1GB file = 8 Blocks - stored across multiple DataNodes
+
+Replication (Fault Tolerance)
+	- Default fault tolerance = 3
+	- Block 1 -> Node A, B, C
+	- Block 2 -> Node B, C, D
+
+===================================
+
+Linux Pre-requisite Commands Before HDFS
+	- HDFS Runs on Linux Server
+	- Command-Line interface
+
+
+Commands to learn:
+	- pwd - present working directory
+

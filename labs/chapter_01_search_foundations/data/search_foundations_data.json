@@ -1,0 +1,22 @@
+{
+  "documents": {
+    "D1": "Data security protects records",
+    "D2": "Security for distributed data",
+    "D3": "Data science explores records",
+    "D4": "Practical data security guidance"
+  },
+  "analysis_samples": [
+    "Data-Security for CSBD2005",
+    "C++ and Python: data pipelines",
+    "CAFÃ‰ records and cafe records"
+  ],
+  "bm25_documents": {
+    "D1": "data security protects records",
+    "D2": "security security security for distributed data",
+    "D3": "data analysis explores records and methods",
+    "D4": "data security guidance"
+  },
+  "query": ["data", "security"],
+  "retrieved": ["D4", "D1", "D2"],
+  "relevant": ["D1", "D4", "D3"]
+}

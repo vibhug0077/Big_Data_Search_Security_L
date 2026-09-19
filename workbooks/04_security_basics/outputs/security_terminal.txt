@@ -1,0 +1,3 @@
+﻿SECURITY SOURCE SMOKE TEST PASSED
+syntax_checked=5
+

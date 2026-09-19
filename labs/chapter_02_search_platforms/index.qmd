@@ -1,0 +1,5 @@
+---
+title: "Lab — Chapter 2: Search platforms"
+---
+
+{{< include README.md >}}

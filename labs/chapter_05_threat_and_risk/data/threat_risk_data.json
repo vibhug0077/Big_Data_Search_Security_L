@@ -1,0 +1,84 @@
+{
+  "components": [
+    {
+      "name": "ingest-api",
+      "asset": "incoming events",
+      "boundary": "internet -> gateway",
+      "owner": "data platform"
+    },
+    {
+      "name": "raw-store",
+      "asset": "source documents",
+      "boundary": "worker -> storage",
+      "owner": "records team"
+    },
+    {
+      "name": "search-index",
+      "asset": "derived terms and snippets",
+      "boundary": "indexer -> search",
+      "owner": "search team"
+    },
+    {
+      "name": "audit-store",
+      "asset": "security evidence",
+      "boundary": "services -> audit",
+      "owner": "security team"
+    }
+  ],
+  "risks": [
+    {
+      "id": "R1",
+      "asset": "restricted index",
+      "threat": "disclosure",
+      "weakness": "broad reader role",
+      "likelihood": 4,
+      "impact": 5,
+      "owner": "search team"
+    },
+    {
+      "id": "R2",
+      "asset": "ingest worker",
+      "threat": "availability",
+      "weakness": "unbounded payload",
+      "likelihood": 3,
+      "impact": 4,
+      "owner": "data platform"
+    },
+    {
+      "id": "R3",
+      "asset": "backup",
+      "threat": "unrecoverability",
+      "weakness": "restore never tested",
+      "likelihood": 2,
+      "impact": 5,
+      "owner": "records team"
+    }
+  ],
+  "denial_threshold": 3,
+  "audit_events": [
+    {
+      "correlation_id": "c1",
+      "actor": "alice",
+      "resource": "private",
+      "outcome": "deny"
+    },
+    {
+      "correlation_id": "c2",
+      "actor": "alice",
+      "resource": "private",
+      "outcome": "deny"
+    },
+    {
+      "correlation_id": "c3",
+      "actor": "alice",
+      "resource": "private",
+      "outcome": "deny"
+    },
+    {
+      "correlation_id": "c4",
+      "actor": "bob",
+      "resource": "public",
+      "outcome": "allow"
+    }
+  ]
+}

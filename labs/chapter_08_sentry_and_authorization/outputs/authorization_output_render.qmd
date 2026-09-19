@@ -1,0 +1,33 @@
+<div class="terminal-snapshot">
+<div class="terminal-title">Captured Docker output - Chapter 8 simulation</div>
+<pre><code>=== Example 1: effective privileges ===
+alice (['reader'], [('SELECT', 'public_notes')])
+bob (['reader', 'reviewer'], [('SELECT', 'public_notes'), ('SELECT', 'restricted_review_queue')])
+service-indexer (['writer'], [('INSERT', 'staging')])
+unknown ([], [])
+
+=== Example 2: allowed and denied policy cases ===
+PASS alice SELECT public_notes True
+PASS alice SELECT restricted_review_queue False
+PASS bob SELECT restricted_review_queue True
+PASS service-indexer SELECT public_notes False
+
+=== Example 3: local role revocation snapshot ===
+removed: [('SELECT', 'restricted_review_queue')]
+retained: [('SELECT', 'public_notes')]
+
+=== Platform dependency boundary ===
+Platform-dependent: historical Sentry SQL requires compatible Sentry/Hive integration
+Platform-dependent: real enforcement requires Hive, Impala, Solr, or storage integration and policy propagation
+
+=== Evidence classification ===
+Configured control: local group-to-role-to-privilege policy with deny-by-default
+Tested control: effective privilege calculation, positive/negative cases, and local revocation snapshot; PASS
+Failed control: none in the secure simulation; no end-to-end enforcement failure was exercised
+Untested control: Sentry service, Hive/Impala/Solr enforcement, caches, exports, facets, direct storage, and credentials
+Residual risk: local policy state may differ from the effective decision at a real distributed enforcement point
+
+CHAPTER 08 SENTRY AND AUTHORIZATION SIMULATION SMOKE TEST PASSED</code></pre>
+</div>
+
+The complete result is in `authorization_output.txt`; the command and terminal evidence are in `authorization_terminal.txt`. No Sentry/Hive output is supplied.

@@ -1,0 +1,5 @@
+---
+title: "Lab - Chapter 6: Controls and audit"
+---
+
+{{< include README.md >}}

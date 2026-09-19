@@ -1,0 +1,3 @@
+﻿ELASTICSEARCH SMOKE TEST PASSED
+cluster_status=yellow count=5
+

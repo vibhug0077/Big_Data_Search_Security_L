@@ -1,0 +1,198 @@
+/* Small course-level additions. The reference book and course component
+   systems live in styles/book.css and styles/course.css. */
+
+.big-data-cover {
+  min-height: 430px;
+  padding: clamp(28px, 5vw, 72px);
+  color: #f8fbff;
+  background:
+    radial-gradient(circle at 80% 18%, rgba(56, 189, 248, .32), transparent 24%),
+    linear-gradient(135deg, #071f4a 0%, #0b3ca8 54%, #0e7490 100%);
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr);
+  align-items: center;
+  gap: 36px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.cover-kicker, .cover-author { color: #b9d7ff; }
+.cover-kicker { font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.big-data-cover h1 { margin: .5rem 0; color: #fff; font-size: clamp(3rem, 8vw, 6.7rem); line-height: .92; }
+.cover-lead { max-width: 600px; color: #e0efff; font-size: clamp(1.1rem, 2vw, 1.35rem); }
+.cover-mark { display: grid; place-items: center; }
+.cover-mark img { width: min(100%, 360px); filter: drop-shadow(0 20px 30px rgba(0, 0, 0, .22)); }
+
+@media (max-width: 760px) {
+  .cover-grid { grid-template-columns: 1fr; }
+  .cover-mark { justify-items: start; }
+}
+
+/* Professional topic infographic treatment. The markup remains plain HTML so
+   it is searchable, accessible, and deployable with the Quarto page. */
+.chapter-infographic {
+  --visual-navy: #071f4a;
+  --visual-blue: #155eef;
+  --visual-teal: #0e7490;
+  position: relative;
+  overflow: hidden;
+  margin: 1.65rem 0 1.9rem;
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid #c5d7e9;
+  border-top: 5px solid var(--visual-blue);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 96% 4%, rgba(14, 116, 144, .15), transparent 25%),
+    linear-gradient(135deg, #f8fbff 0%, #eef7f8 100%);
+  box-shadow: 0 12px 30px rgba(7, 31, 74, .09);
+}
+
+.chapter-infographic::before {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 150px;
+  height: 5px;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  content: "";
+}
+
+.concept-graphic-kicker {
+  margin-bottom: 5px;
+  color: var(--visual-teal);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.chapter-infographic .concept-graphic-title {
+  margin-bottom: 8px;
+  color: var(--visual-navy);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  letter-spacing: -.01em;
+}
+
+.chapter-infographic > p:not(.small-note) {
+  max-width: 900px;
+  color: #39516b;
+  font-size: .96rem;
+}
+
+.chapter-infographic .concept-flow {
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+}
+
+.chapter-infographic .infographic-node {
+  min-height: 132px;
+  border: 1px solid #d6e3ef;
+  border-top: 4px solid var(--visual-blue);
+  box-shadow: 0 6px 16px rgba(7, 31, 74, .06);
+}
+
+.chapter-infographic .infographic-node:nth-child(3) {
+  border-top-color: var(--visual-teal);
+}
+
+.chapter-infographic .infographic-node:nth-child(5) {
+  border-top-color: #16a36a;
+}
+
+.chapter-infographic .infographic-node span {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  margin-bottom: 10px;
+  color: #fff;
+  background: var(--visual-blue);
+  border-radius: 50%;
+  font-size: .7rem;
+  letter-spacing: .04em;
+}
+
+.chapter-infographic .infographic-node:nth-child(3) span { background: var(--visual-teal); }
+.chapter-infographic .infographic-node:nth-child(5) span { background: #16a36a; }
+.chapter-infographic .infographic-node strong { color: var(--visual-navy); font-size: 1.02rem; }
+.chapter-infographic .infographic-node small { font-size: .87rem; }
+
+.chapter-infographic .concept-arrow {
+  color: var(--visual-teal);
+  font-size: 1.5rem;
+  text-shadow: 0 2px 8px rgba(14, 116, 144, .18);
+}
+
+.infographic-footer {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #cbdbea;
+}
+
+.infographic-footer span {
+  flex: 0 0 auto;
+  color: var(--visual-blue);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.infographic-footer p {
+  margin: 0;
+  color: #53657a;
+  font-size: .86rem;
+}
+
+@media (max-width: 760px) {
+  .chapter-infographic .concept-flow { gap: 8px; }
+  .chapter-infographic .concept-arrow { padding: 0; transform: rotate(90deg); }
+  .infographic-footer { display: block; }
+  .infographic-footer p { margin-top: 5px; }
+}
+
+/* Graphical 4:3 topic assets. Each chapter infographic is stored under the
+   shared assets/infographics folder and uses the reference-book figure pattern. */
+.chapter-image-infographic {
+  max-width: 1120px;
+  margin: 2rem auto 2.35rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.chapter-image-infographic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border: 1px solid #cbd9e8;
+  border-radius: 16px;
+  background: #f4f8fc;
+  box-shadow: 0 14px 34px rgb(7 31 74 / 13%);
+}
+
+.chapter-image-infographic figcaption {
+  max-width: 1000px;
+  margin: .7rem auto 0;
+  padding: 0 .8rem;
+  color: #53657a;
+  font-size: .88rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.chapter-image-infographic figcaption strong {
+  color: #0b3c78;
+}
+
+@media (max-width: 760px) {
+  .chapter-image-infographic img { border-radius: 10px; }
+  .chapter-image-infographic figcaption { padding: 0 .35rem; font-size: .82rem; }
+}

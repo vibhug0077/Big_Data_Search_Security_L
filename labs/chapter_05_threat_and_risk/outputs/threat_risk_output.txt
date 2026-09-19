@@ -1,0 +1,28 @@
+CHAPTER 05 THREAT AND RISK
+Working directory: /workspace/labs/chapter_05_threat_and_risk
+Data file: data/threat_risk_data.json
+
+=== Example 1: asset and trust-boundary inventory ===
+ingest-api: protect incoming events at internet -> gateway (data platform)
+raw-store: protect source documents at worker -> storage (records team)
+search-index: protect derived terms and snippets at indexer -> search (search team)
+audit-store: protect security evidence at services -> audit (security team)
+
+=== Example 2: transparent ordinal risk register ===
+R1 20 disclosure owner= search team | ordinal comparison; review with evidence
+R2 12 availability owner= data platform | ordinal comparison; review with evidence
+R3 10 unrecoverability owner= records team | ordinal comparison; review with evidence
+
+=== Example 3: repeated-denial review signal ===
+denials: {'alice': 3}
+review signals: {'alice': 3}
+evidence IDs: ['c1', 'c2', 'c3']
+
+=== Evidence classification ===
+Configured control: risk-treatment suggestions are recorded; no production control is configured
+Tested control: deterministic repeated-denial review signal; PASS
+Failed control: none exercised by this risk-only model; no effectiveness claim is made
+Untested control: resource-specific role, payload limit, and restore rehearsal
+Residual risk: live enforcement, alert timing, audit-store integrity, and recovery remain unverified
+
+CHAPTER 05 THREAT AND RISK SMOKE TEST PASSED

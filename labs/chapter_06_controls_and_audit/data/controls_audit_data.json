@@ -1,0 +1,72 @@
+{
+  "control_matrix": [
+    {
+      "risk": "R1",
+      "control": "resource-specific role",
+      "type": "preventive",
+      "owner": "search",
+      "evidence": "deny-test-01"
+    },
+    {
+      "risk": "R1",
+      "control": "access audit review",
+      "type": "detective",
+      "owner": "security",
+      "evidence": "audit-review-01"
+    },
+    {
+      "risk": "R2",
+      "control": "payload size limit",
+      "type": "preventive",
+      "owner": "platform",
+      "evidence": null
+    },
+    {
+      "risk": "R3",
+      "control": "restore rehearsal",
+      "type": "corrective",
+      "owner": "records",
+      "evidence": "restore-01"
+    }
+  ],
+  "audit_events": [
+    {
+      "timestamp": "2026-09-15T10:00:00Z",
+      "actor": "alice",
+      "action": "read",
+      "resource": "private",
+      "outcome": "deny",
+      "body": "do-not-log"
+    },
+    {
+      "timestamp": "2026-09-15T10:01:00Z",
+      "actor": "service-indexer",
+      "action": "write",
+      "resource": "index-1",
+      "outcome": "allow",
+      "body": "do-not-log"
+    }
+  ],
+  "safe_event_fields": [
+    "timestamp",
+    "actor",
+    "action",
+    "resource",
+    "outcome"
+  ],
+  "policy": [
+    ["reader", "SELECT", "public_notes"],
+    ["writer", "INSERT", "staging"]
+  ],
+  "policy_tests": [
+    ["reader", "SELECT", "public_notes", true],
+    ["reader", "DROP", "public_notes", false],
+    ["writer", "SELECT", "private_notes", false]
+  ],
+  "insecure_negative_test": [
+    "reader",
+    "SELECT",
+    "private_notes",
+    false
+  ]
+}

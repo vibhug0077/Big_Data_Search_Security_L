@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img">
+<title>Integrity, confidentiality, and secure ingestion: conceptual workflow</title>
+<rect width="1000" height="460" rx="20" fill="#071f4a"/>
+<text x="35" y="50" fill="#b9d7ff" font-family="Arial" font-size="19">CSBD4011P | CONCEPTUAL WORKFLOW</text>
+<rect x="80" y="80" width="840" height="48" rx="10" fill="#155eef"/>
+<text x="500" y="111" text-anchor="middle" fill="white" font-family="Arial" font-size="21">Producer</text>
+<path d="M500 129v16m-6 -6l6 6 6 -6" stroke="#5eead4" stroke-width="3" fill="none"/>
+<rect x="80" y="150" width="840" height="48" rx="10" fill="#155eef"/>
+<text x="500" y="181" text-anchor="middle" fill="white" font-family="Arial" font-size="21">Authenticate bytes</text>
+<path d="M500 199v16m-6 -6l6 6 6 -6" stroke="#5eead4" stroke-width="3" fill="none"/>
+<rect x="80" y="220" width="840" height="48" rx="10" fill="#155eef"/>
+<text x="500" y="251" text-anchor="middle" fill="white" font-family="Arial" font-size="21">Validate schema</text>
+<path d="M500 269v16m-6 -6l6 6 6 -6" stroke="#5eead4" stroke-width="3" fill="none"/>
+<rect x="80" y="290" width="840" height="48" rx="10" fill="#155eef"/>
+<text x="500" y="321" text-anchor="middle" fill="white" font-family="Arial" font-size="21">Replay check</text>
+<path d="M500 339v16m-6 -6l6 6 6 -6" stroke="#5eead4" stroke-width="3" fill="none"/>
+<rect x="80" y="360" width="840" height="48" rx="10" fill="#155eef"/>
+<text x="500" y="391" text-anchor="middle" fill="white" font-family="Arial" font-size="21">Publish or quarantine</text>
+</svg>

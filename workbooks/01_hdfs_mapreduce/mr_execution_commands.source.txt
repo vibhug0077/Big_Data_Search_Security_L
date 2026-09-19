@@ -1,0 +1,14 @@
+1. docker cp data.txt namenode:data.txt
+2. docker cp mapper.py namenode:mapper.py
+3. docker cp reducer.py namenode:reducer.py
+
+====Inside NameNode Container Bash====
+4. hdfs dfs -mkdir -p /data/wordcount/input
+5. hdfs dfs -put /data.txt /data/wordcount/input/
+6. chmod +x mapper.py reducer.py
+7. hadoop jar /opt/hadoop-*/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+    -input /data/wordcount/input/data.txt \
+    -output /data/wordcount/wc_output_v9 \
+    -mapper "python mapper.py" \
+    -reducer "python reducer.py"
+8. hdfs dfs -cat /data/wordcount/wc_output_v9/part-00000

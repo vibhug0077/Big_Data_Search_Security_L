@@ -1,0 +1,44 @@
+Pre-requisite:
+Install Python with Dockerfile for namenode container.
+
+Build Docker Image:
+docker build --platform=linux/amd64 -t hadoop-namenode-python .
+
+Start Docker Containers:
+docker-compose up -d --build
+
+Step-1: Open NameNode Container
+docker exec -it namenode bash
+
+Step-2: Check HDFS File System
+hdfs dfs -ls /
+
+Step-3: Create Directory in HDFS
+hdfs dfs -mkdir /user
+hdfs dfs -mkdir /user/hadoop
+hdfs dfs -mkdir -p /data/input
+
+Step-4: Put File into HDFS
+echo "Sample Data for Hadoop" > some_data.txt
+hdfs dfs -put some_data.txt /data/input/
+
+Step-5: List Files and Content in HDFS Directory
+hdfs dfs -ls /data/input/
+hdfs dfs -cat /data/input/some_data.txt
+
+
+ToDo:
+1. Check disk usage 
+2. Remove file from HDFS
+3. Change Permissions
+4. Change Ownership
+
+Step-6: Handle Replication Factor and File Blocks
+Display Replication Factor -> hdfs dfs -stat %r /data/input/some_data.txt
+Set Replication Factor to 2 -> hdfs dfs -setrep 2 /data/input/some_data.txt
+HDFS File Block size -> hdfs dfs -stat %b /data/input/some_data.txt
+HDFS File Block -> hdfs fsck /data/input/some_data.txt
+HDFS File Block Distribution -> hdfs fsck /data/input/some_data.txt -files -blocks -locations
+
+Step-7: Cluster Report and Health Check
+HDFS Report -> hdfs dfsadmin -report

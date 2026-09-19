@@ -1,0 +1,19 @@
+{
+  "plaintext": "synthetic course document",
+  "associated_data": "document=D001;schema=1",
+  "key_id": "course-kek-v1",
+  "new_key_id": "course-kek-v2",
+  "envelope_plaintext": "synthetic restricted note",
+  "envelope_aad": "object=doc-001;classification=course",
+  "hops": [
+    ["browser", "gateway", true],
+    ["gateway", "search", true],
+    ["search", "worker", false],
+    ["worker", "storage", true]
+  ],
+  "certificate": {
+    "hostname": "localhost",
+    "generated_at_runtime": true,
+    "private_key_committed": false
+  }
+}

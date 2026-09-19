@@ -1,0 +1,30 @@
+<div class="terminal-snapshot">
+<div class="terminal-title">Captured Docker output - Chapter 6</div>
+<pre><code>=== Example 1: control matrix evidence coverage ===
+R1 resource-specific role preventive tested in this local script
+R1 access audit review detective tested in this local script
+R2 payload size limit preventive untested; evidence missing
+R3 restore rehearsal corrective untested; evidence reference only
+
+=== Example 2: audit-event normalization ===
+redaction control: PASS
+
+=== Example 3: authorization positive and negative tests ===
+PASS reader SELECT public_notes actual= True
+PASS reader DROP public_notes actual= False
+PASS writer SELECT private_notes actual= False
+
+=== Example 4: intentionally insecure control failure ===
+FAILED CONTROL DETECTED reader SELECT private_notes actual= True expected= False
+
+=== Evidence classification ===
+Configured control: authorization policy, audit-event field allow-list, and control-matrix records
+Tested control: audit redaction and secure policy positive/negative tests; PASS
+Failed control: intentionally insecure policy allowed reader access to private_notes; DETECTED
+Untested control: payload-size limit, restore rehearsal, TLS/certificate validation, and distributed enforcement
+Residual risk: local policy tests do not prove gateway, search, export, backup, or direct-storage enforcement
+
+CHAPTER 06 CONTROLS AND AUDIT SMOKE TEST PASSED</code></pre>
+</div>
+
+The complete result is in `controls_audit_output.txt`; the command and raw terminal evidence are in `controls_audit_terminal.txt`.

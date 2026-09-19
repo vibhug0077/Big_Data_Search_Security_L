@@ -1,0 +1,15 @@
+Command: docker compose -f docker/elasticsearch/docker-compose.yml up -d
+Container: elasticsearch-elasticsearch-1
+Result: Started
+
+Command: docker compose -f docker/course-dev/docker-compose.yml run --rm course-dev bash -lc "cd /workspace/labs/chapter_03_elasticsearch_data_model && python3 code/elasticsearch_data_model_smoke.py"
+Container: course-dev
+Endpoint from course container: http://host.docker.internal:9200
+Exit status: 0
+
+ELASTICSEARCH SMOKE TEST PASSED
+cluster_status=yellow count=5
+CHAPTER 03 ELASTICSEARCH DATA MODEL SMOKE TEST PASSED
+
+Command: docker compose -f docker/elasticsearch/docker-compose.yml down
+Result: disposable service stopped; disposable index deleted by the runner

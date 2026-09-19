@@ -1,0 +1,16 @@
+<div class="terminal-snapshot">
+<div class="terminal-title">Captured Docker terminal output</div>
+<pre><code>HADOOP SMOKE TEST PASSED
+&amp;    4
+data    22
+hadoop  3
+mapreduce       1
+processing      3
+search  1
+security        1
+storage 4
+streaming,      1
+write   1</code></pre>
+</div>
+
+The page shows a representative excerpt. The complete captured reducer output is in `hadoop_streaming_output.txt`.

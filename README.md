@@ -1,146 +1,160 @@
-# Big Data Search and Security — companion guide
+# Big Data Search and Security — public workbooks and labs
 
-This repository is a README-only companion for the Big Data Search and
-Security course. It is not the published course book and it does not contain
-duplicate course files.
+This is the public practical repository for the course. It contains the
+student-facing workbooks, executable code, supplied data, Docker environments,
+Java/Lucene project, platform-specific examples, lab guides, output captures,
+and validation scripts.
 
-The actual theory, workbooks, labs, data, Docker files, Java/Lucene project,
-notebooks, scripts, and rendered course site are maintained in the public
-course repository:
+The theory book, assessment bank, private source notes, and deployed course
+site remain in the private course repository:
 
-- [Big_Data_Search_Security course repository](https://github.com/vibhug0077/Big_Data_Search_Security)
-- [Rendered course site](https://vibhug0077.github.io/Big_Data_Search_Security/)
+- [Private theory and course repository](https://github.com/vibhug0077/Big_Data_Search_Security)
 
-All links below point to the source course repository on GitHub. Use the
-`main` branch unless the instructor provides another branch.
+This repository is the public source for practical work. Do not copy private
+theory chapters or private course-book files here.
 
-## Local working locations
+## Local and container roots
 
 ```text
-Course source:
-C:\UPES\Repos\Big_Data_Search_Security
-
-This README-only companion:
+Public practical repository:
 C:\UPES\Repos\Big_Data_Search_Security_L
 
-Container mount:
+Container root:
 /workspace
 ```
 
-Inside the Dockerised course environment, `/workspace` is the mounted course
-repository. Commands in the course should be run from `/workspace` unless a
-workbook states otherwise.
+Inside the Dockerised course environment, the public repository is mounted at
+`/workspace`. Run host commands from the public repository root and container
+commands from `/workspace`.
 
-## Start here
-
-1. Open the [course landing page](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/index.qmd).
-2. Read the [installation snapshot](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/docs/installation_snapshot.md).
-3. Read the [course source map](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/docs/source_map.md).
-4. Select the theory chapter and its linked lab.
-5. Open the corresponding workbook and inspect its supplied data files.
-6. Run the command from `/workspace`.
-7. Compare the run with the saved output capture.
-
-Clone the actual course repository for local work:
+## Quick start
 
 ```powershell
-git clone https://github.com/vibhug0077/Big_Data_Search_Security.git C:\UPES\Repos\Big_Data_Search_Security
-Set-Location C:\UPES\Repos\Big_Data_Search_Security
+git clone https://github.com/vibhug0077/Big_Data_Search_Security_L.git C:\UPES\Repos\Big_Data_Search_Security_L
+Set-Location C:\UPES\Repos\Big_Data_Search_Security_L
+docker version
+docker compose version
 ```
 
-## Folder guide
+Read the [installation snapshot](docs/installation_snapshot.md), then choose
+the relevant workbook and chapter lab. Every lab contains its own `code/`,
+`data/`, and `outputs/` folders.
 
-| Folder | What it contains | How students use it |
+## Public folder guide
+
+| Folder | Contents | Student use |
 |---|---|---|
-| [`assets/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/assets) | Hero graphics, chapter infographics, and visual learning assets | View the visual explanation attached to the landing page, chapters, and workbooks. |
-| [`data/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/data) | Shared synthetic teaching data | Use only the supplied files named by a workbook or lab. |
-| [`docker/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/docker) | Course development, Hadoop, and Elasticsearch container definitions | Start the platform environment required by the selected workbook. |
-| [`docs/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/docs) | Installation, provenance, execution context, source map, and student checklist | Confirm prerequisites, paths, evidence rules, and publication boundaries. |
-| [`downloads/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/downloads) | Learner-facing download index and source links | Download the theory, lab, workbook, Docker, Java, data, and notebook material. |
-| [`examples/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/examples) | Small supporting examples used by the course | Read the example before adapting it in a lab. |
-| [`java/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/java) | Supplied Java 17/Lucene Maven project and text inputs | Build and run the real Lucene examples inside the course container. |
-| [`labs/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs) | Ten chapter-wise lab guides with code, data, outputs, interpretation, and troubleshooting | Complete the lab after reading its theory chapter and workbook. |
-| [`notebooks/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/notebooks) | Theory and legacy source notebooks | Read the saved theory examples and outputs; platform-dependent notebooks are labelled. |
-| [`platform/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/platform) | Additional platform-specific supplied source | Use only when the required Hadoop, Kafka, KDC, Sentry, or credential infrastructure is available. |
-| [`scripts/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/scripts) | Run wrappers, smoke tests, validators, and presentation audits | Run checks from the repository root before publishing or submitting work. |
-| [`styles/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/styles) | Quarto styling for the landing page, theory, workbooks, code, and output panels | Normally leave unchanged; these styles keep source code and output readable. |
-| [`tests/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/tests) | Static repository structure tests | Run the test suite after changing course files. |
-| [`theory/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/theory) | Markdown source for the ten theory chapters | Use as the editable theory source behind the rendered chapter notebooks. |
-| [`workbooks/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/workbooks) | Environment, Hadoop, Lucene, Elasticsearch, and security practical guides | Follow the command, data-file, output-capture, and interpretation sequence. |
+| [`.github/`](.github) | Public repository validation workflow | Runs practical structure and secret checks. |
+| [`assets/`](assets) | Workbook and chapter infographics | Use the visual guide before the practical procedure. |
+| [`data/`](data) | Shared teaching data | Use only the supplied files named by a workbook or lab. |
+| [`docker/`](docker) | Course development, Hadoop, and Elasticsearch containers | Provides Java/Maven, Python, Hadoop, and Elasticsearch execution environments. |
+| [`docs/`](docs) | Public execution context and installation instructions | Check prerequisites, roots, commands, and platform boundaries. |
+| [`examples/`](examples) | Supporting runnable examples | Use as small reference examples for the labs. |
+| [`java/`](java) | Java 17/Lucene Maven project and text resources | Build and execute the real Lucene programs. |
+| [`labs/`](labs) | Ten chapter-wise practical labs | Follow the code, data, command, output, interpretation, and troubleshooting flow. |
+| [`platform/`](platform) | Additional platform-specific source examples | Use only when the required KDC, Kafka, Hadoop, Sentry, or credentials exist. |
+| [`scripts/`](scripts) | Container wrappers, smoke tests, and secret scan | Run practical checks from the public repository root. |
+| [`styles/`](styles) | Shared workbook and lab presentation styles | Used when a workbook or lab page is rendered locally. |
+| [`workbooks/`](workbooks) | Environment, Hadoop, Lucene, Elasticsearch, and security guides | Start here for installation and platform procedures. |
 
-### Generated and hidden folders
+The private repository intentionally retains the theory Markdown, theory
+notebooks, assessment bank, complete Quarto book, and generated course site.
+The public repository contains the executable practical code needed to run the
+examples without exposing private theory content.
 
-| Folder | Status and instruction |
-|---|---|
-| [`.github/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/.github) | Repository workflow and automation configuration. Change only when the publication or validation workflow requires it. |
-| [`.quarto/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/.quarto) | Local Quarto working metadata. Do not use it as course source content. |
-| [`_site/`](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/_site) | Generated HTML output from `quarto render`. Rebuild it locally; do not edit generated pages directly. |
+## Chapter-to-lab map
 
-The `.git/` directory is version-control metadata and is not course content.
-
-## Chapter sequence
-
-| Chapter | Theory | Lab | Main practical material |
-|---:|---|---|---|
-| 1 | [Search foundations](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/01_Search_Foundations.ipynb) | [Chapter 1 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_01_search_foundations) | Inverted-index and retrieval examples |
-| 2 | [Search platforms](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/02_Search_Platforms.ipynb) | [Chapter 2 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_02_search_platforms) | Platform selection and workflow |
-| 3 | [Elasticsearch data model](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/03_Elasticsearch_Data_Model.ipynb) | [Chapter 3 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_03_elasticsearch_data_model) | Real Elasticsearch container |
-| 4 | [Lucene and ranking](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/04_Lucene_and_Ranking.ipynb) | [Chapter 4 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_04_lucene_and_ranking) | Real Java Lucene/Maven project |
-| 5 | [Threat and risk](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/05_Threat_and_Risk.ipynb) | [Chapter 5 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_05_threat_and_risk) | Risk scoring and evidence |
-| 6 | [Controls and audit](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/06_Controls_and_Audit.ipynb) | [Chapter 6 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_06_controls_and_audit) | Control matrix and audit events |
-| 7 | [Kerberos](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/07_Kerberos.ipynb) | [Chapter 7 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_07_kerberos) | Ticket metadata and platform boundary |
-| 8 | [Sentry and authorization](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/08_Sentry_and_Authorization.ipynb) | [Chapter 8 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_08_sentry_and_authorization) | RBAC simulation and platform notes |
-| 9 | [Secure ingestion](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/09_Secure_Ingestion.ipynb) | [Chapter 9 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_09_secure_ingestion) | Integrity, authentication, and deduplication |
-| 10 | [Encryption and transport](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/notebooks/10_Encryption_and_Transport.ipynb) | [Chapter 10 lab](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/labs/chapter_10_encryption_and_transport) | AEAD, key wrapping, and TLS |
+| Chapter | Public lab | Main public code/data |
+|---:|---|---|
+| 1 — Search foundations | [`chapter_01_search_foundations/`](labs/chapter_01_search_foundations) | Local Python postings, token analysis, BM25, precision, and recall |
+| 2 — Search platforms | [`chapter_02_search_platforms/`](labs/chapter_02_search_platforms) | Platform selection, filtering, document identity, and authorization |
+| 3 — Elasticsearch data model | [`chapter_03_elasticsearch_data_model/`](labs/chapter_03_elasticsearch_data_model) | Real Elasticsearch smoke test, mappings, routing, and product data |
+| 4 — Lucene and ranking | [`chapter_04_lucene_and_ranking/`](labs/chapter_04_lucene_and_ranking) | Supplied Java Lucene project, text files, indexing, and ranking |
+| 5 — Threat and risk | [`chapter_05_threat_and_risk/`](labs/chapter_05_threat_and_risk) | Synthetic risk register and risk-evidence examples |
+| 6 — Controls and audit | [`chapter_06_controls_and_audit/`](labs/chapter_06_controls_and_audit) | Control matrix, audit events, and authorization tests |
+| 7 — Kerberos | [`chapter_07_kerberos/`](labs/chapter_07_kerberos) | Safe ticket metadata simulation and platform-specific source notes |
+| 8 — Sentry and authorization | [`chapter_08_sentry_and_authorization/`](labs/chapter_08_sentry_and_authorization) | RBAC simulation, SQL policy example, and audit evidence |
+| 9 — Secure ingestion | [`chapter_09_secure_ingestion/`](labs/chapter_09_secure_ingestion) | HMAC, trusted digest, schema validation, and duplicate handling |
+| 10 — Encryption and transport | [`chapter_10_encryption_and_transport/`](labs/chapter_10_encryption_and_transport) | AES-GCM, DEK/KEK wrapping, TLS context, and transport gaps |
 
 ## Main workbooks
 
-- [Workbook 00 — Environment and execution flow](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/workbooks/00_environment)
-- [Workbook 01 — HDFS and Hadoop Streaming MapReduce](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/workbooks/01_hdfs_mapreduce)
-- [Workbook 02 — Java Lucene search](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/workbooks/02_lucene)
-- [Workbook 03 — Elasticsearch product search](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/workbooks/03_elasticsearch)
-- [Workbook 04 — Supplied security examples](https://github.com/vibhug0077/Big_Data_Search_Security/tree/main/workbooks/04_security_basics)
+- [Workbook 00 — Environment and execution flow](workbooks/00_environment)
+- [Workbook 01 — HDFS and Hadoop Streaming MapReduce](workbooks/01_hdfs_mapreduce)
+- [Workbook 02 — Java Lucene search](workbooks/02_lucene)
+- [Workbook 03 — Elasticsearch product search](workbooks/03_elasticsearch)
+- [Workbook 04 — Supplied security examples](workbooks/04_security_basics)
 
-## Root files
+## What each practical example must contain
 
-| File | Purpose |
-|---|---|
-| [`index.qmd`](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/index.qmd) | Single course landing page and navigation entry point. |
-| [`about.qmd`](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/about.qmd) | Course scope, provenance, and publication boundary. |
-| [`ASSESSMENT_BANK.qmd`](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/ASSESSMENT_BANK.qmd) | Six Bloom-mapped questions for each of the ten chapters. |
-| [`_quarto.yml`](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/_quarto.yml) | Quarto render list, navigation, resources, and stylesheet configuration. |
-| [`README.md`](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/README.md) | Developer and learner orientation for the actual course repository. |
+Every chapter lab and workbook should identify:
 
-## Evidence rules
+1. working directory;
+2. required Docker/platform dependency;
+3. code example;
+4. supplied data file;
+5. execution command;
+6. captured output or an honest platform-dependent label;
+7. interpretation and limitations;
+8. troubleshooting and viva prompts.
 
-- A code block is an instruction, not proof of execution.
-- Use the supplied data file and the command shown by the relevant workbook.
-- Treat saved terminal output as evidence only when its status and source are identified.
-- Platform-dependent examples must identify their required KDC, Sentry, Hadoop, Kafka, Elasticsearch, Docker, or credential infrastructure.
-- No real passwords, private keys, tokens, generated indexes, Maven `target/` folders, or Docker volumes belong in the public course repository.
-- If an experiment cannot run, record the reason honestly; do not fabricate output.
+The `outputs/` folders contain saved evidence from tested examples. A saved
+command is not proof by itself: check the status marker, input file, and output
+description before interpreting a result.
 
-## Validation commands
-
-Run these commands from `C:\UPES\Repos\Big_Data_Search_Security`:
+## Run the local and container examples
 
 ```powershell
-quarto render
-python scripts/audit_course_presentation.py
-python scripts/validate_rendered_sites.py
-python scripts/validate_workbook.py
-python scripts/validate_assessment_bank.py
-python scripts/scan_secrets.py
-python -m unittest discover -s tests -v
+# Chapter 1 and 2 local labs in course-dev
+python scripts/smoke_test_chapter_labs.py
+
+# Chapters 5 and 6 dependency-free security labs
+python scripts/smoke_test_chapter_05_06.py
+
+# Chapters 7 and 8 simulations
+python scripts/smoke_test_chapter_07_08.py
+
+# Chapters 9 and 10 secure examples
+python scripts/smoke_test_chapter_09_10.py
+
+# Real Elasticsearch and Java Lucene checks
+python scripts/smoke_test_chapter_03_04.py
+
+# Hadoop smoke test, after the Hadoop container is running
+python scripts/smoke_test_hadoop.py
 ```
 
-The real Docker, Hadoop, Elasticsearch, and Lucene smoke tests are listed in
-the [installation snapshot](https://github.com/vibhug0077/Big_Data_Search_Security/blob/main/docs/installation_snapshot.md)
-and the relevant workbook README files.
+Run Lucene directly:
 
-## Relationship between the two repositories
+```powershell
+.\scripts\run_lucene.ps1 -Example simple
+.\scripts\run_lucene.ps1 -Example files
+```
 
-This companion repository contains this guide only. The course repository is
-the single source of truth for all content and downloadable files. When the
-course repository changes, update the links and folder descriptions in this
-README rather than copying course files into this repository.
+Equivalent Bash commands:
+
+```bash
+bash scripts/run_lucene.sh simple
+bash scripts/run_lucene.sh files
+```
+
+## Validation and safety
+
+```powershell
+python scripts/validate_public_workbooks.py
+python scripts/scan_secrets.py
+```
+
+The public repository must not contain real passwords, tokens, private keys,
+keytabs, generated Lucene indexes, Maven `target/` output, Docker volumes, or
+private theory files. Kerberos, Sentry, Kafka, and secured Hadoop examples are
+labelled `platform-dependent` unless their required infrastructure has been
+genuinely tested.
+
+## Relationship to the private course repository
+
+The private repository is the source for the deployed theory book and course
+navigation. This public repository is the source for the downloadable practical
+material and executable examples. Links from private theory pages should point
+to folders and files in this repository for code, data, workbooks, labs, and
+captured outputs.

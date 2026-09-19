@@ -1,0 +1,21 @@
+<div class="terminal-snapshot">
+<div class="terminal-title">Captured Docker output — Chapter 1</div>
+<pre><code>CHAPTER 01 SEARCH FOUNDATIONS
+Working directory: /workspace/labs/chapter_01_search_foundations
+Data file: data/search_foundations_data.json
+
+AND: ['D1', 'D2', 'D4']
+Phrase: ['D1', 'D4']
+Precision: 0.667 Recall: 1.0
+
+D2 0.626 6
+D4 0.544 3
+D1 0.494 4
+D3 0.095 6
+
+{'retrieved': 3, 'relevant_in_retrieved': 2, 'precision': 0.667, 'recall': 0.6666666666666666}
+
+CHAPTER 01 SEARCH FOUNDATIONS SMOKE TEST PASSED</code></pre>
+</div>
+
+The complete program output is in `search_foundations_output.txt`; the command and exit-status capture is in `search_foundations_terminal.txt`.

@@ -1,0 +1,43 @@
+## Recorded output
+
+The code example was executed in the `course-dev` Docker container with
+working directory `/workspace`. The payload and envelope metadata are synthetic
+and the AES keys and localhost certificate are generated only for the run.
+
+```text
+Round trip: True
+Ciphertext bytes including tag: 41
+changed ciphertext rejected
+changed metadata rejected
+DEK recovered: True
+same DEK after KEK rotation: True
+Certificate required: True
+Hostname checking: True
+Minimum protocol: TLSv1_2
+TLS loopback handshake: PASS
+TLS negotiated version: TLSv1.3
+wrong hostname rejected: True
+browser -> gateway: TLS required
+gateway -> search: TLS required
+search -> worker: GAP TO REVIEW
+worker -> storage: TLS required
+CHAPTER 10 ENCRYPTION AND TRANSPORT SMOKE TEST PASSED
+```
+
+The complete Docker terminal capture is available at
+`outputs/encryption_transport_terminal.txt`, and the compact program output is
+at `outputs/encryption_transport_output.txt`.
+
+The loopback certificate and private key are created in a temporary directory,
+used for the local handshake, and removed automatically. No key, certificate,
+KMS credential, or production secret is part of this repository.
+
+## Evidence status
+
+| Status | Result |
+|---|---|
+| Configured control | AES-GCM authenticated encryption, DEK/KEK envelope, TLS 1.2 minimum, and hostname validation |
+| Tested control | Round trip, tamper rejection, key re-wrap, verified loopback TLS, and wrong-host rejection — PASS |
+| Failed control | The fictional search-to-worker hop is intentionally recorded as `GAP TO REVIEW` |
+| Untested control | KMS access, HDFS encryption zones, external certificate chain, mutual TLS, rotation migration, and every production hop |
+| Residual risk | Ephemeral local keys and a self-signed certificate do not establish production key custody or trust |

@@ -1,0 +1,30 @@
+{
+  "records": [
+    {"id": "A", "body": "data security", "department": "CSE"},
+    {"id": "B", "body": "network security", "department": "ECE"},
+    {"id": "C", "body": "data analysis", "department": "CSE"}
+  ],
+  "requirements": {
+    "embedded_deployment": true,
+    "network_api": false,
+    "rich_text_ranking": true,
+    "joins_are_primary": false,
+    "replica_operations": false
+  },
+  "candidates": {
+    "embedded_library": {"embedded_deployment": true, "network_api": false, "rich_text_ranking": true, "joins_are_primary": false, "replica_operations": false},
+    "distributed_search_service": {"embedded_deployment": false, "network_api": true, "rich_text_ranking": true, "joins_are_primary": false, "replica_operations": true},
+    "database_full_text": {"embedded_deployment": true, "network_api": true, "rich_text_ranking": true, "joins_are_primary": true, "replica_operations": false}
+  },
+  "upsert": {
+    "source_uri": "file:///notes/search.pdf",
+    "logical_part": "page-1",
+    "body": "inverted index"
+  },
+  "authorized_records": [
+    {"id": "A", "body": "data security", "department": "CSE", "allowed": true},
+    {"id": "B", "body": "security policy", "department": "ECE", "allowed": true},
+    {"id": "C", "body": "data analysis", "department": "CSE", "allowed": true},
+    {"id": "D", "body": "security audit", "department": "ME", "allowed": false}
+  ]
+}

@@ -1,0 +1,42 @@
+Command: docker compose -f docker/course-dev/docker-compose.yml run --rm course-dev bash -lc "cd /workspace/labs/chapter_07_kerberos && python3 code/kerberos_simulation.py"
+Container: course-dev
+Exit status: 0
+
+CHAPTER 07 KERBEROS
+Working directory: /workspace/labs/chapter_07_kerberos
+Data file: data/kerberos_simulation_data.json
+
+=== Example 1: ticket metadata model ===
+Within validity: True
+Expired: False
+Wrong service: False
+
+=== Example 2: validity window and clock-skew model ===
+999 True
+1000 True
+1599 True
+1600 True
+1602 False
+
+=== Example 3: authentication and authorization separation ===
+service authentication: True
+search allowed: True
+delete allowed: False
+
+=== Example 4: directional cross-realm trust model ===
+('STUDENT.EXAMPLE', 'SERVICES.EXAMPLE') True
+('SERVICES.EXAMPLE', 'STUDENT.EXAMPLE') False
+('UNKNOWN.EXAMPLE', 'SERVICES.EXAMPLE') False
+
+=== Platform dependency boundary ===
+Platform-dependent: kinit/klist/kvno/kdestroy require a reachable KDC, principals, and credentials
+Platform-dependent: Kafka/Hadoop service authentication requires a real broker or secured Hadoop profile
+
+=== Evidence classification ===
+Configured control: deterministic service-binding, validity-window, and local authorization rules
+Tested control: metadata checks and local authorization separation; PASS
+Failed control: none in the simulation; invalid service and DELETE cases were denied as expected
+Untested control: cryptographic ticket verification, replay cache, mutual authentication, KDC, keytabs, and credential handling
+Residual risk: simulation values can be edited and do not establish Kerberos security or platform authorization
+
+CHAPTER 07 KERBEROS SIMULATION SMOKE TEST PASSED

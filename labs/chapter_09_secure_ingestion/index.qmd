@@ -1,0 +1,5 @@
+---
+title: "Lab - Chapter 9: Secure ingestion"
+---
+
+{{< include README.md >}}

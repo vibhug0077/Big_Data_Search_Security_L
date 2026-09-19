@@ -1,0 +1,23 @@
+{
+  "groups": {
+    "alice": ["students"],
+    "bob": ["students", "assistants"],
+    "service-indexer": ["ingest"]
+  },
+  "group_roles": {
+    "students": ["reader"],
+    "assistants": ["reader", "reviewer"],
+    "ingest": ["writer"]
+  },
+  "role_privileges": {
+    "reader": [["SELECT", "public_notes"]],
+    "reviewer": [["SELECT", "restricted_review_queue"]],
+    "writer": [["INSERT", "staging"]]
+  },
+  "policy_cases": [
+    ["alice", "SELECT", "public_notes", true],
+    ["alice", "SELECT", "restricted_review_queue", false],
+    ["bob", "SELECT", "restricted_review_queue", true],
+    ["service-indexer", "SELECT", "public_notes", false]
+  ]
+}

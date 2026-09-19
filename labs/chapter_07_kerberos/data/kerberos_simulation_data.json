@@ -1,0 +1,22 @@
+{
+  "ticket": {
+    "client": "alice@LAB.EXAMPLE",
+    "service": "HTTP/search.lab.example@LAB.EXAMPLE",
+    "start": 1000,
+    "end": 1600
+  },
+  "service": "HTTP/search.lab.example@LAB.EXAMPLE",
+  "allowed_skew": 2,
+  "skew_times": [999, 1000, 1599, 1600, 1602],
+  "permissions": [
+    ["alice@LAB.EXAMPLE", "SEARCH", "course-index"]
+  ],
+  "trusted_paths": [
+    ["STUDENT.EXAMPLE", "SERVICES.EXAMPLE"]
+  ],
+  "trust_paths": [
+    ["STUDENT.EXAMPLE", "SERVICES.EXAMPLE"],
+    ["SERVICES.EXAMPLE", "STUDENT.EXAMPLE"],
+    ["UNKNOWN.EXAMPLE", "SERVICES.EXAMPLE"]
+  ]
+}
