@@ -1,5 +1,0 @@
----
-title: "Lab - Chapter 5: Threat and risk"
----
-
-{{< include README.md >}}

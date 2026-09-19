@@ -1,5 +1,0 @@
----
-title: "Lab - Chapter 7: Kerberos"
----
-
-{{< include README.md >}}

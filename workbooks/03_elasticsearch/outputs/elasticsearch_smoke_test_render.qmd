@@ -1,5 +1,0 @@
-<div class="terminal-snapshot">
-<div class="terminal-title">Captured Docker terminal output</div>
-<pre><code>ELASTICSEARCH SMOKE TEST PASSED
-cluster_status=yellow count=5</code></pre>
-</div>

@@ -2,15 +2,11 @@
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
-.quarto/
-_site/
 target/
 cp.txt
 *.class
 *.log
 *.keytab
 *.jks
-data/generated/
 docker/**/data/
-java/lucene/src/main/resources/index/
-*.source.ipynb_checkpoints
+examples/lucene/src/main/resources/index/

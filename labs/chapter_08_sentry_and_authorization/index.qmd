@@ -1,5 +1,0 @@
----
-title: "Lab - Chapter 8: Sentry and authorization"
----
-
-{{< include README.md >}}

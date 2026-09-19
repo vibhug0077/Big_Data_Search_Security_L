@@ -1,5 +1,0 @@
----
-title: "Lab — Chapter 1: Search foundations"
----
-
-{{< include README.md >}}

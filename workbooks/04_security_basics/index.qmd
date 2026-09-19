@@ -1,6 +1,0 @@
----
-title: "Workbook 04 — Supplied security examples"
----
-
-{{< include README.md >}}
-

@@ -1,6 +1,0 @@
----
-title: "Workbook 03 — Elasticsearch product search"
----
-
-{{< include README.md >}}
-

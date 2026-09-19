@@ -1,5 +1,0 @@
----
-title: "Lab - Chapter 3: Elasticsearch data model"
----
-
-{{< include README.md >}}

@@ -1,9 +1,0 @@
-<div class="terminal-snapshot">
-<div class="terminal-title">Captured PowerShell terminal output</div>
-<pre><code>Command: .\scripts\run_lucene.ps1 -Example simple
-Maven result: BUILD SUCCESS
-
-Total Hits : 3
-Title: Java Concepts and score : 0.17398778
-Title: Java Programming and score : 0.16212496</code></pre>
-</div>

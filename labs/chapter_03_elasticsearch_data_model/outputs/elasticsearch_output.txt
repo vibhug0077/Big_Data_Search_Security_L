@@ -1,8 +1,0 @@
-CHAPTER 03 ELASTICSEARCH DATA MODEL
-Working directory: /workspace/labs/chapter_03_elasticsearch_data_model
-Data file: data/products.json
-Service: Elasticsearch 8.18.0 in docker/elasticsearch
-
-ELASTICSEARCH SMOKE TEST PASSED
-cluster_status=yellow count=5
-CHAPTER 03 ELASTICSEARCH DATA MODEL SMOKE TEST PASSED

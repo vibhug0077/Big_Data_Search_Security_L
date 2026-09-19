@@ -2,14 +2,21 @@
 set -euo pipefail
 
 cleanup() {
-  rm -rf /workspace/java/lucene/src/main/resources/index
+  rm -rf /workspace/examples/lucene/src/main/resources/index
+  rm -rf /workspace/examples/lucene/target
+  rm -f /workspace/examples/lucene/cp.txt
 }
 trap cleanup EXIT
 
+cd /workspace/examples/lucene
+mvn -B clean compile
+mvn -q dependency:build-classpath -Dmdep.outputFile=cp.txt
+classpath="$(cat cp.txt)"
+
 echo "=== supplied Lucene simple example ==="
-bash /workspace/scripts/run_lucene_inside_container.sh simple
+java -cp "target/classes:${classpath}" org.example.SimpleLuceneExample
 echo "LUCENE SIMPLE EXAMPLE PASSED"
 
 echo "=== supplied Lucene local-file indexer ==="
-bash /workspace/scripts/run_lucene_inside_container.sh files
+java -cp "target/classes:${classpath}" org.example.fileSearch.LocalFileIndexer
 echo "LUCENE FILE INDEXER PASSED"
